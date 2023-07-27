@@ -61,18 +61,39 @@ const frequencyResult = mostFrequencyElement(frequencyArr)
 
 // Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
 
-function culculate (num1,num2){
-    const sum = num1 + num2;
-    const minus = num1 - num2;
-    const multiply = num1*num2;
-    const divide = (num1/num2).toFixed(2)
-
-
-    return [sum,minus, divide,multiply]
+function calculator(num1, num2, operator) {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      if (num2 === 0) {
+        return "Cannot divide by zero!";
+      }
+      return num1 / num2;
+    default:
+      return "Invalid operator!";
+  }
 }
 
-const culculateResult = culculate(50,30)
-// console.log(culculateResult)
+// Examples
+// const calculate1 = calculator((5, 3, '+'))
+// const calculate2 = (calculator(10, 4, '-'))
+// const calculate3 = (calculator(2, 6, '*'))
+// const calculate4 = calculator((10, 2, '/'))
+// const calculate5 = (calculator(10, 0, '/'))
+// const calculate6 = (calculator(4, 2, '&'))
+
+console.log(calculator(5, 3, '+')); // Output: 8
+console.log(calculator(10, 4, '-')); // Output: 6
+console.log(calculator(2, 6, '*')); // Output: 12
+console.log(calculator(10, 2, '/')); // Output: 5
+console.log(calculator(10, 0, '/')); // Output: "Cannot divide by zero!"
+console.log(calculator(4, 2, '&')); // Output: "Invalid operator!"
+
 
 // Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
 
